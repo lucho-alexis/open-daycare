@@ -35,3 +35,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Reglas de codigo
 
 - Usar codigo limpio, nombres, funciones, variables, etc. codigo en ingles.
+
+## Next.js Navigation
+
+- Para navegar entre rutas internas, usar siempre `Link` de `next/link`; no usar `<a href="/...">`.
+- Mantener los atributos visuales y de accesibilidad en `Link` igual que en un enlace HTML.
+- Reservar `<a>` para URLs externas, descargas y protocolos como `mailto:` o `tel:` que no deben pasar por el router de Next.js.
+- Consultar `node_modules/next/dist/docs/01-app/03-api-reference/02-components/link.md` para la API vigente de `Link`.
