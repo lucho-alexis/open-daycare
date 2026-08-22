@@ -54,22 +54,22 @@ La feature no introduce nuevas estructuras de datos. Los campos utilizarán valo
 
 ## Acceptance Criteria
 
-- [ ] `/login` carga sin errores.
-- [ ] `/activate-account` carga sin errores.
-- [ ] Login no muestra las opciones Personal ni Familia.
-- [ ] Login muestra email y contraseña como inputs editables.
-- [ ] Activación muestra código, email y contraseña como inputs editables.
-- [ ] Activación muestra un checkbox real de autorización marcado inicialmente.
-- [ ] El botón de login navega a `/`.
-- [ ] El botón de activación navega a `/`.
-- [ ] `Activá tu cuenta` navega de `/login` a `/activate-account`.
-- [ ] `Iniciar sesión` navega de `/activate-account` a `/login`.
-- [ ] No existe autenticación, persistencia ni validación explícita.
-- [ ] La composición visual coincide con las referencias en desktop.
-- [ ] En móvil las pantallas se adaptan sin overflow horizontal.
-- [ ] No se cargan fuentes remotas.
-- [ ] `npx tsc --noEmit` finaliza correctamente.
-- [ ] `npm run build` finaliza correctamente.
+- [x] `/login` carga sin errores.
+- [x] `/activate-account` carga sin errores.
+- [x] Login no muestra las opciones Personal ni Familia.
+- [x] Login muestra email y contraseña como inputs editables.
+- [x] Activación muestra código, email y contraseña como inputs editables.
+- [x] Activación muestra un checkbox real de autorización marcado inicialmente.
+- [x] El botón de login navega a `/`.
+- [x] El botón de activación navega a `/`.
+- [x] `Activá tu cuenta` navega de `/login` a `/activate-account`.
+- [x] `Iniciar sesión` navega de `/activate-account` a `/login`.
+- [x] No existe autenticación, persistencia ni validación explícita.
+- [x] La composición visual coincide con las referencias en desktop.
+- [x] En móvil las pantallas se adaptan sin overflow horizontal.
+- [x] No se cargan fuentes remotas.
+- [x] `npx tsc --noEmit` finaliza correctamente.
+- [x] `npm run build` finaliza correctamente.
 
 ## Decisions Taken And Discarded
 
