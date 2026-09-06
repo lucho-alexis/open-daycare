@@ -12,19 +12,18 @@ const avatarStyles: Record<number, { background: string; text: string }> = {
   7: { background: "bg-[#a9d9e8]", text: "text-[#1f7a93]" },
 };
 
-export function KidCard({ kid }: { kid: Kid }) {
-  const avatar = avatarStyles[kid.id];
+export function KidCard({ kid, isNew = false }: { kid: Kid; isNew?: boolean }) {
+  const avatar = avatarStyles[kid.id] ?? avatarStyles[((kid.id - 1) % Object.keys(avatarStyles).length) + 1];
   const badgeClassName =
     kid.badgeTone === "link"
       ? "bg-[#f9d2de] text-[#c56486]"
       : "bg-[#fbd8cc] text-[#d9684a]";
+  const cardClassName = `group flex min-w-0 items-center gap-3.5 rounded-[18px] border border-surface-border bg-surface p-4 shadow-[0_4px_14px_-12px_rgba(120,90,60,0.5)]${
+    isNew ? "" : " transition duration-150 hover:-translate-y-0.5 hover:border-[#f2a78e]"
+  }`;
 
-  return (
-    <Link
-      href={`/kids/${kid.id}`}
-      aria-label={`Ver perfil de ${kid.name}`}
-      className="group flex min-w-0 items-center gap-3.5 rounded-[18px] border border-surface-border bg-surface p-4 shadow-[0_4px_14px_-12px_rgba(120,90,60,0.5)] transition duration-150 hover:-translate-y-0.5 hover:border-[#f2a78e]"
-    >
+  const cardContent = (
+    <>
       <div className={`flex size-12 shrink-0 items-center justify-center rounded-full text-[19px] font-semibold ${avatar.background} ${avatar.text}`}>
         {kid.initial}
       </div>
@@ -38,7 +37,7 @@ export function KidCard({ kid }: { kid: Kid }) {
         <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-extrabold ${badgeClassName}`}>
           {kid.badge}
         </span>
-      ) : (
+      ) : !isNew ? (
         <svg
           className="size-[18px] shrink-0 text-[#cbb89f]"
           viewBox="0 0 24 24"
@@ -51,7 +50,17 @@ export function KidCard({ kid }: { kid: Kid }) {
         >
           <path d="m9 18 6-6-6-6" />
         </svg>
-      )}
+      ) : null}
+    </>
+  );
+
+  if (isNew) {
+    return <div className={cardClassName}>{cardContent}</div>;
+  }
+
+  return (
+    <Link href={`/kids/${kid.id}`} aria-label={`Ver perfil de ${kid.name}`} className={cardClassName}>
+      {cardContent}
     </Link>
   );
 }
